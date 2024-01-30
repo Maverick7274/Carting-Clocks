@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import "preline/preline";
 import { IStaticMethods } from "preline/preline";
+import Router from './Components/Routers/Router';
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
@@ -20,9 +21,8 @@ function App() {
   return (
     <>
 
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+
+      <Router />
 
     </>
   )
