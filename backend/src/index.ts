@@ -18,7 +18,7 @@ app.use(cors({
     credentials: true,
 }));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 app.use(compression());
 app.use(cookieParser());
@@ -27,8 +27,8 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 
 server.listen(port, () => {
-    console.log('Server listening on port 8080');
-    console.log('http://localhost:8080/');
+    console.log('Server listening on port 5000');
+    console.log('http://localhost:5000/');
 })
 
 
