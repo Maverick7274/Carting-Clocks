@@ -41,10 +41,6 @@ userSchema.statics.register = async function (fullname, username, email, passwor
         throw new Error("Username is invalid!");
     }
 
-
-
-
-
     const existingEmail = await this.findOne({email});
     const existingUsername = await this.findOne({username});
     // console.log("userModel.js is running");
@@ -55,7 +51,6 @@ userSchema.statics.register = async function (fullname, username, email, passwor
     if (existingUsername) {
         throw new Error("Username already exists!");
     }
-
 
 
     const salt = await bcrypt.genSalt(10);
@@ -69,6 +64,28 @@ userSchema.statics.register = async function (fullname, username, email, passwor
     });
 
     return user;
+}
+
+userSchema.statics.login = async function (username, password) {
+
+    if (!username || !password) {
+        throw new Error("All fields are required!");
+    }
+
+    const user = await this.findOne({ username });
+
+    if (!user) {
+        throw new Error("Username does not exist!");
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+        throw new Error("Password is incorrect!");
+    }
+
+    return user;
+
 }
 
 
