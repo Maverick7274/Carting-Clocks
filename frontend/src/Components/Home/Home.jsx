@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-function Dashboard({}: Props) {
+function Home() {
   return (
     <div>
         
@@ -10,4 +8,4 @@ function Dashboard({}: Props) {
   )
 }
 
-export default Dashboard
+export default Home
